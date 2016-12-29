@@ -2,7 +2,8 @@
 /**
  * ChangeString
  */
-class ChangeString {
+class ChangeString
+{
 	
 	/**
 	 * Array que contiene todas la letras del abecedario en español.
@@ -22,21 +23,26 @@ class ChangeString {
 	 * @param [string] $param [Recibe una cadena de texto.]
 	 * @return [string] [Retorna una cadena de texto.]
 	 */
-	function build($param){
+	function build($param)
+	{
 		$newString = "";
 
 		//Separamos la cadena $param en un array de todos los caracteres.
 		$arrParam = str_split($param);
 
 		//Recorremos erl array $arrParam.
-		foreach ($arrParam as $key => $value) {
+		foreach ($arrParam as $key => $value) 
+		{
 			//Validamos que $value sea una letra.
 			if(ctype_alpha($value)){
 				//Verificamos si es mayuscula.
-				if(ctype_upper($value)){
+				if(ctype_upper($value))
+				{
 					$is_mayus = 1; //Es mayuscula
 					$value = strtolower($value);
-				}else{
+				}
+				else
+				{
 					$is_mayus = 0; //Es minuscula
 				}
 
@@ -47,18 +53,24 @@ class ChangeString {
 				$newIndex = $index + 1;
 
 				//Verificamos si $value es igual a "z" para asignar a $newIndex el valor 0.
-				if($value == 'z'){
+				if($value == 'z')
+				{
 					$newIndex = 0;
 				}
 
 				//Validamos si $value fue mayuscula o minuscula.
-				if($is_mayus == 1){
+				if($is_mayus == 1)
+				{
 					$newString .= strtoupper($this->abc[$newIndex]);
-				}else{
+				}
+				else
+				{
 					$newString .= $this->abc[$newIndex];
 				}
 
-			}else{
+			}
+			else
+			{
 				//Concatenamos los mismo caracteres.
 				$newString .= $value;
 			}
@@ -83,6 +95,7 @@ $salida03 = $changeString->build($entrada03);
 
 //Mostramos los resultados.
 echo "<h2>Problema 01</h2>";
+
 echo $entrada01 . " => <strong>".$salida01."</strong>";
 echo "<hr>";
 
